@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjut.abms.mapper.PassengerMapper">
+
+    <resultMap id="BaseResultMap" type="com.zjut.abms.pojo.Passenger">
+            <id property="id" column="pass_id" jdbcType="INTEGER"/>
+            <result property="name" column="pass_name" jdbcType="VARCHAR"/>
+            <result property="sex" column="pass_sex" jdbcType="VARCHAR"/>
+            <result property="phone" column="pass_phone" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        pass_id,pass_name,pass_sex,
+        pass_phone
+    </sql>
+</mapper>
