@@ -21,6 +21,7 @@ public class Passenger implements Serializable {
     private String sex;
     @TableField(value = "pass_phone")
     private String phone;
-
+    @TableField(value = "pass_password")
+    private String password;
     private static final long serialVersionUID = 1L;
 }

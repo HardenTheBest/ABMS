@@ -4,6 +4,8 @@ import com.zjut.abms.pojo.Passenger;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
 * @author l
 * @description 针对表【passenger】的数据库操作Mapper
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PassengerMapper extends BaseMapper<Passenger> {
 
+    List<Passenger> selectPassengers();
 }
 
 

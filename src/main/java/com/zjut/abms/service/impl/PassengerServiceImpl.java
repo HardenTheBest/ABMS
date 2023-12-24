@@ -1,5 +1,6 @@
 package com.zjut.abms.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zjut.abms.pojo.Passenger;
 import com.zjut.abms.service.PassengerService;
@@ -23,7 +24,7 @@ public class PassengerServiceImpl extends ServiceImpl<PassengerMapper, Passenger
     private PassengerMapper passengerMapper;
     @Override
     public Result selectAllPassenger() {
-        List<Passenger> passengers = passengerMapper.selectList(null);
+        List<Passenger> passengers = passengerMapper.selectPassengers();
         return Result.ok(passengers);
     }
 }
