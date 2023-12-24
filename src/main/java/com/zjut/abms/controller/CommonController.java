@@ -2,6 +2,7 @@ package com.zjut.abms.controller;
 
 import com.zjut.abms.service.AdminService;
 import com.zjut.abms.service.AgencyService;
+import com.zjut.abms.service.PassengerService;
 import com.zjut.abms.utils.Result;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ public class CommonController {
     private AdminService adminService;
     @Autowired
     private AgencyService agencyService;
+    @Autowired
+    private PassengerService passengerService;
 
     @PostMapping("login")
     public Result login(@RequestBody Map<String, String> requestData) {
@@ -27,6 +30,8 @@ public class CommonController {
             result = adminService.login(requestData.get("username"), requestData.get("password"));
         }else if(type.equals("agency")){
             result = agencyService.login(requestData.get("username"), requestData.get("password"));
+        }else if(type.equals("passenger")){
+            result = passengerService.login(requestData.get("username"),requestData.get("password"));
         }
 
         return result;

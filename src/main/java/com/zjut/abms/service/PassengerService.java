@@ -12,4 +12,8 @@ import com.zjut.abms.utils.Result;
 public interface PassengerService extends IService<Passenger> {
 
     Result selectAllPassenger();
+
+    Result login(String username, String password);
+
+    Result register(Passenger passenger);
 }
