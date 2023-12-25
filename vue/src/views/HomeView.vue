@@ -60,8 +60,8 @@
 
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item >个人信息</el-dropdown-item>
-                <el-dropdown-item @click="">修改密码</el-dropdown-item>
-                <el-dropdown-item >退出登录</el-dropdown-item>
+                <el-dropdown-item >修改密码</el-dropdown-item>
+                <el-dropdown-item @click.native="$router.push('/login')">退出登录</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
           </div>
@@ -103,7 +103,7 @@
                 <el-table :data="passengers">
 <!--                  prop:属性名-->
                   <el-table-column label="ID" prop="id"></el-table-column>
-                  <el-table-column label="姓名" prop="name"></el-table-column>
+                  <el-table-column label="姓名" prop="username"></el-table-column>
                   <el-table-column label="性别" prop="sex"></el-table-column>
                   <el-table-column label="电话" prop="phone"></el-table-column>
                 </el-table>
@@ -138,6 +138,9 @@ export default {
     request.get('/admin/selectAllPassenger').then(res =>{
       this.passengers = res.data
     })
+    // this.$route.get('/admin/selectAllPassenger').then(res =>{
+    //   this.passengers = res.data
+    // })
   },
   methods:{
     handleFulls(){//点击全屏按钮响应函数
