@@ -6,7 +6,7 @@
 
     <resultMap id="BaseResultMap" type="com.zjut.abms.pojo.Passenger">
             <id property="id" column="pass_id" jdbcType="INTEGER"/>
-            <result property="name" column="pass_name" jdbcType="VARCHAR"/>
+            <result property="username" column="pass_name" jdbcType="VARCHAR"/>
             <result property="sex" column="pass_sex" jdbcType="VARCHAR"/>
             <result property="phone" column="pass_phone" jdbcType="VARCHAR"/>
     </resultMap>
