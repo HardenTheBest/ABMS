@@ -36,4 +36,16 @@ public class CommonController {
 
         return result;
     }
+
+    @PostMapping("register")
+    public Result register(@RequestBody Map<String, String> requestData){
+        String type = requestData.get("type");
+        Result result = null;
+        if (type.equals("agency")){
+            result = agencyService.register(requestData.get("username"),requestData.get("password"));
+        } else if (type.equals("passenger")) {
+            result = passengerService.register(requestData.get("username"),requestData.get("password"));
+        }
+        return result;
+    }
 }

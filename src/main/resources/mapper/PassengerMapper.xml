@@ -17,6 +17,6 @@
     </sql>
 
     <select id="selectPassengers" resultType="Passenger">
-        select pass_id id,pass_name name,pass_sex sex,pass_phone phone from passenger;
+        select pass_id id,pass_name username,pass_sex sex,pass_phone phone from passenger;
     </select>
 </mapper>

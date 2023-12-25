@@ -13,9 +13,9 @@ public class PassengerController {
     @Autowired
     private PassengerService passengerService;
 
-    @PostMapping("register")
-    public Result register(@RequestBody Passenger passenger){
-        Result result = passengerService.register(passenger);
-        return result;
-    }
+//    @PostMapping("register")
+//    public Result register(@RequestBody Passenger passenger){
+//        Result result = passengerService.register(passenger);
+//        return result;
+//    }
 }

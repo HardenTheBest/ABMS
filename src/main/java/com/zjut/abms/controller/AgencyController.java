@@ -14,9 +14,9 @@ public class AgencyController {
     @Autowired
     private AgencyService AgencyService;
 
-    @PostMapping("register")
-    public Result register(@RequestBody Agency agency){
-        Result result = AgencyService.register(agency);
-        return result;
-    }
+//    @PostMapping("register")
+//    public Result register(@RequestBody Agency agency){
+//        Result result = AgencyService.register(agency);
+//        return result;
+//    }
 }

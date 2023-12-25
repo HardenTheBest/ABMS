@@ -17,11 +17,11 @@ public class AdminController {
     @Autowired
     private PassengerService passengerService;
 
-    @PostMapping("register")
-    public Result register(@RequestBody Admin admin){
-        Result result = adminService.register(admin);
-        return result;
-    }
+//    @PostMapping("register")
+//    public Result register(@RequestBody Admin admin){
+//        Result result = adminService.register(admin);
+//        return result;
+//    }
 
     @GetMapping("selectAllPassenger")
     public Result selectAllPassenger(){

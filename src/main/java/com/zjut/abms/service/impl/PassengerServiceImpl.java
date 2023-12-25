@@ -40,7 +40,7 @@ public class PassengerServiceImpl extends ServiceImpl<PassengerMapper, Passenger
     @Override
     public Result login(String username, String password) {
         LambdaQueryWrapper<Passenger> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.eq(Passenger::getName, username);
+        lambdaQueryWrapper.eq(Passenger::getUsername, username);
         Passenger loginPassenger = passengerMapper.selectOne(lambdaQueryWrapper);
 
         if (loginPassenger == null) {
@@ -59,15 +59,20 @@ public class PassengerServiceImpl extends ServiceImpl<PassengerMapper, Passenger
     }
 
     @Override
-    public Result register(Passenger passenger) {
+    public Result register(String username, String password) {
+        System.out.println(username);
         LambdaQueryWrapper<Passenger> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.eq(Passenger::getName,passenger.getName());
+        lambdaQueryWrapper.eq(Passenger::getUsername,username);
         Long count = passengerMapper.selectCount(lambdaQueryWrapper);
 
         if(count > 0){
             return Result.build(null,ResultCodeEnum.USERNAME_USED);
         }
-        passenger.setPassword(MD5Util.encrypt(passenger.getPassword()));
+        String safePassword = MD5Util.encrypt(password);
+        Passenger passenger = new Passenger();
+        passenger.setUsername(username);
+        passenger.setPassword(safePassword);
+        System.out.println(passenger);
         passengerMapper.insert(passenger);
         return Result.ok(null);
     }

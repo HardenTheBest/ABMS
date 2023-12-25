@@ -13,5 +13,5 @@ public interface AgencyService extends IService<Agency> {
 
     Result login(String username, String password);
 
-    Result register(Agency agency);
+    Result register(String username, String password);
 }

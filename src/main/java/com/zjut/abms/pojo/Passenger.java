@@ -16,7 +16,7 @@ public class Passenger implements Serializable {
     @TableId(value = "pass_id",type = IdType.AUTO)
     private Integer id;
     @TableField(value = "pass_name")
-    private String name;
+    private String username;
     @TableField(value = "pass_sex")
     private String sex;
     @TableField(value = "pass_phone")

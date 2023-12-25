@@ -15,5 +15,5 @@ public interface PassengerService extends IService<Passenger> {
 
     Result login(String username, String password);
 
-    Result register(Passenger passenger);
+    Result register(String username, String password);
 }

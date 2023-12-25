@@ -58,16 +58,19 @@ public class AgencyServiceImpl extends ServiceImpl<AgencyMapper, Agency>
     }
 
     @Override
-    public Result register(Agency agency) {
+    public Result register(String username, String password) {
         LambdaQueryWrapper<Agency> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.eq(Agency::getUsername, agency.getUsername());
+        lambdaQueryWrapper.eq(Agency::getUsername, username);
         Long count = agencyMapper.selectCount(lambdaQueryWrapper);
 
         if (count > 0) {
             return Result.build(null, ResultCodeEnum.USERNAME_USED);
         }
 
-        agency.setPassword(MD5Util.encrypt(agency.getPassword()));
+        String safePassword = MD5Util.encrypt(password);
+        Agency agency = new Agency();
+        agency.setUsername(username);
+        agency.setPassword(safePassword);
         agencyMapper.insert(agency);
         return Result.ok(null);
     }

@@ -57,17 +57,19 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin>
     }
 
     @Override
-    public Result register(Admin admin) {
+    public Result register(String username, String password) {
         LambdaQueryWrapper<Admin> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.eq(Admin::getUsername,admin.getUsername());
+        lambdaQueryWrapper.eq(Admin::getUsername,username);
         Long count = adminMapper.selectCount(lambdaQueryWrapper);
 
         if(count > 0){
             return Result.build(null,ResultCodeEnum.USERNAME_USED);
         }
 
-        admin.setPassword(MD5Util.encrypt(admin.getPassword()));
-
+        String safePassword = MD5Util.encrypt(password);
+        Admin admin = new Admin();
+        admin.setUsername(username);
+        admin.setPassword(safePassword);
         adminMapper.insert(admin);
         return Result.ok(null);
     }

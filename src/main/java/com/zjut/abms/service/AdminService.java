@@ -13,5 +13,5 @@ public interface AdminService extends IService<Admin> {
 
     Result login(String username, String password);
 
-    Result register(Admin admin);
+    Result register(String username, String password);
 }
